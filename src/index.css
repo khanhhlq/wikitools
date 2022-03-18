@@ -214,6 +214,9 @@ h1 {
 .result a:hover {
   background-color: #ff4fa8;
 }
+.result .time {
+  font-size: 16px;
+}
 button {
   margin: 0 auto;
   width: 150px;

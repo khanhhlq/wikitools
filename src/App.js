@@ -57,17 +57,12 @@ const GoTop = (props) => {
   }, [])
 
   const onScrollStep = () => {
-
-    if (window.pageYOffset === 0) {
+    if (window.pageYOffset === 0)
       clearInterval(timeoutRef.current)
-    }
     window.scroll(0, window.pageYOffset - props.scrollStepInPx)
   }
 
-  const scrollToTop = () => {
-    timeoutRef.current = setInterval(onScrollStep, props.delayInMs)
-
-  }
+  const scrollToTop = () => timeoutRef.current = setInterval(onScrollStep, props.delayInMs)
 
   const renderGoTopIcon = () => {
     return (
@@ -149,6 +144,7 @@ const App = () => {
               <div className="result">
                 <h3>[ {result.title} ]</h3>
                 <p dangerouslySetInnerHTML={{ __html: result.snippet }}></p>
+                <p className="time">{result.timestamp}</p>
                 <a href={targetUrl} target="_blank" rel="noreferrer">Đọc thêm</a>
               </div>
             </LazyLoad>
