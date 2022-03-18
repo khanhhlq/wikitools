@@ -1,13 +1,232 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+.go-top {
+  cursor: pointer;
+  position: fixed;
+  z-index: 9999;
+  bottom: 20px;
+  right: 15px;
+  width: 100px;
+}
+body::-webkit-scrollbar {
+  width: 14px; /* Chiều rộng vùng chứa scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #ccc; /* Màu nền ngoài của thanh scrollbar */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* Màu của thanh cuộn (scroll thumb) */
+  border-radius: 5px; /* Bo góc scroll thumb */
+  border: 2px solid #ccc; /* Không hỗ trợ padding, margin, transition nên dùng viền cùng màu nên để padding scroll thumb */
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #a84fff; /* Hiệu ứng di chuột đổi màu*/
+}
+body {
+  /*cho Firefox*/
+  scrollbar-width: thin; /* "auto" hoặc "thin" */
+  scrollbar-color: #a84fff #ccc; /* scroll thumb and track */
+}
+body {
+  position: relative;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC");
+  z-index: 3;
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: blue orange; /* scroll thumb and track */
+}
+body::after {
+  content: "\A";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.432);
+  opacity: 1;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  z-index: 1;
+}
+body::before {
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: normal;
+}
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  z-index: 50;
+  padding: 30px 0px 30px 0px;
+  margin: 0px 16px 0px 16px;
+}
+.loading {
+  color: #a84fff;
+  font-weight: 500;
+  text-align: center;
+  font: 400 10.6666666667px exo, ubuntu, "segoe ui", helvetica, arial,
+    sans-serif;
+  font-size: 16px;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header p {
+  color: #fff;
+  margin-bottom: 16px;
+}
+header img {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 52px;
+  padding-bottom: 3px;
+  z-index: 9;
+}
+h1 {
+  font: 400 10.6666666667px exo, ubuntu, "segoe ui", helvetica, arial,
+    sans-serif;
+  color: #fff;
+  font-size: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 13px;
+  padding-top: 3px;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 16px;
+  transition: 0.4s;
+}
+.search-box input {
+  display: block;
+  appearance: none;
+  outline: none;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  transition: 0.4s;
+}
+.search-box:focus-within {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+.results {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.result {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.result:hover {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+.result h3 {
+  color: #888;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.result p {
+  color: #313131;
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-seráp;
+}
+.result p .searchmatch {
+  font-weight: 700;
+}
+.result a {
+  display: inline-block;
+  padding: 12px 16px;
+  background-color: #a84fff;
+  color: #fff;
+  font-weight: 700;
+  text-transform: none;
+  border-radius: 12px;
+  transition: 0.4s;
+  text-decoration: none;
+}
+.result a:hover {
+  background-color: #ff4fa8;
+}
+button {
+  margin: 0 auto;
+  width: 150px;
+  height: 40px;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 16px;
+  color: #4d4949;
+  background-color: #a84fff;
+  color: #fff;
+}
+button:hover {
+  color: #fff;
+  background-color: #ff4fa8;
 }
