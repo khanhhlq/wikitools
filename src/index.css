@@ -52,6 +52,9 @@
   bottom: 20px;
   right: 15px;
   width: 100px;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
 }
 body::-webkit-scrollbar {
   width: 14px;

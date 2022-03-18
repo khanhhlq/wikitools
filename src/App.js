@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import ReactTypingEffect from 'react-typing-effect'
 import logo from './images/logo192.png'
 import LazyLoad from 'react-lazyload'
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Spinner = () => (
   <div className="post loading">
@@ -70,7 +72,7 @@ const GoTop = (props) => {
   const renderGoTopIcon = () => {
     return (
       <button className={`go-top ${thePosition ? 'active' : ''}`} onClick={scrollToTop}>
-        Trở về
+        <FontAwesomeIcon icon={faArrowUp} />
       </button>
     )
   }
@@ -78,7 +80,6 @@ const GoTop = (props) => {
   return (
     <React.Fragment>
       {renderGoTopIcon()}
-
     </React.Fragment>
   )
 }
