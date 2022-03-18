@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ReactTypingEffect from 'react-typing-effect';
-import logo from './images/logo192.png';
+import React, { useState } from "react"
+import ReactTypingEffect from 'react-typing-effect'
+import logo from './images/logo192.png'
 import LazyLoad from 'react-lazyload'
 
 const Spinner = () => (
@@ -39,16 +39,16 @@ const Spinner = () => (
 const GoTop = (props) => {
 
   // const [intervalId, setIntervalId] = React.useState(0);
-  const [thePosition, setThePosition] = React.useState(false);
+  const [thePosition, setThePosition] = React.useState(false)
 
-  const timeoutRef = React.useRef(null);
+  const timeoutRef = React.useRef(null)
 
   React.useEffect(() => {
     document.addEventListener("scroll", () => {
       if (window.scrollY > 170) {
         setThePosition(true)
       } else {
-        setThePosition(false);
+        setThePosition(false)
       }
     });
     // window.scrollTo(0, 0);
@@ -57,13 +57,13 @@ const GoTop = (props) => {
   const onScrollStep = () => {
 
     if (window.pageYOffset === 0) {
-      clearInterval(timeoutRef.current);
+      clearInterval(timeoutRef.current)
     }
-    window.scroll(0, window.pageYOffset - props.scrollStepInPx);
+    window.scroll(0, window.pageYOffset - props.scrollStepInPx)
   }
 
   const scrollToTop = () => {
-    timeoutRef.current = setInterval(onScrollStep, props.delayInMs);
+    timeoutRef.current = setInterval(onScrollStep, props.delayInMs)
 
   }
 
@@ -84,12 +84,12 @@ const GoTop = (props) => {
 }
 
 const App = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("")
   const [results, setResults] = useState([])
   const [getInfo, setGetInfo] = useState({})
 
   const handleSearch = async e => {
-    e.preventDefault();
+    e.preventDefault()
     if (search.trim() === ' ' || search.trim() === "" || search.trim().length < 1) return alert("Có thể bạn chưa nhập dữ liệu hoặc dữ liệu bạn tìm không tồn tại 😌")
     const url = `https://vi.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=max&srsearch=${search.trim()}`
     const res = await fetch(url)

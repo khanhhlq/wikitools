@@ -54,30 +54,29 @@
   width: 100px;
 }
 body::-webkit-scrollbar {
-  width: 14px; /* Chiều rộng vùng chứa scrollbar */
+  width: 14px;
 }
 body::-webkit-scrollbar-track {
-  background: #ccc; /* Màu nền ngoài của thanh scrollbar */
+  background: #ccc;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #ffffff; /* Màu của thanh cuộn (scroll thumb) */
-  border-radius: 5px; /* Bo góc scroll thumb */
-  border: 2px solid #ccc; /* Không hỗ trợ padding, margin, transition nên dùng viền cùng màu nên để padding scroll thumb */
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 2px solid #ccc;
 }
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #a84fff; /* Hiệu ứng di chuột đổi màu*/
+  background-color: #a84fff;
 }
 body {
-  /*cho Firefox*/
-  scrollbar-width: thin; /* "auto" hoặc "thin" */
-  scrollbar-color: #a84fff #ccc; /* scroll thumb and track */
+  scrollbar-width: thin;
+  scrollbar-color: #a84fff #ccc;
 }
 body {
   position: relative;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC");
   z-index: 3;
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: blue orange; /* scroll thumb and track */
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
 }
 body::after {
   content: "\A";
